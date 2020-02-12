@@ -8,7 +8,7 @@ For now just clone the repo, run npm install and run it.
 
 ## Screenshot
 
-![screen](./screenshot/screen1.png?raw=true "Overview")
+![screen](./screenshots/screen1.png?raw=true "Overview")
 
 ## Built With
 
