@@ -10,6 +10,7 @@ interface Props {
   style?: React.CSSProperties | undefined;
   children?: React.ReactNode;
   currentWidth?: number;
+  inverted?: boolean;
 }
 
 const Neumorphism = ({ style, children, ...rest }: Props) => {
@@ -28,7 +29,11 @@ const Neumorphism = ({ style, children, ...rest }: Props) => {
   );
 };
 
-const computeShadow = (width: number, color: string): string => {
+const computeShadow = (
+  width: number,
+  color: string,
+  inverted: boolean
+): string => {
   console.log("we got this width in func: ", width);
   const x = Math.round(Math.sqrt(width / 10));
   const y = Math.round(Math.sqrt(width / 10));
@@ -37,10 +42,11 @@ const computeShadow = (width: number, color: string): string => {
 
   const baseColor = color ? color : "#D1CDC7";
 
-  return `box-shadow: -${x}px -${y}px ${blur}px ${colorLuminance(
-    baseColor,
-    0.1
-  )}, ${x}px ${y}px ${blur}px ${colorLuminance(baseColor, -0.4)}`;
+  return `box-shadow:${
+    inverted ? "inset" : ""
+  } -${x}px -${y}px ${blur}px ${colorLuminance(baseColor, 0.1)},${
+    inverted ? "inset" : ""
+  } ${x}px ${y}px ${blur}px ${colorLuminance(baseColor, -0.4)}`;
 };
 
 const colorLuminance = (hex: string, lum: number) => {
@@ -65,12 +71,16 @@ const colorLuminance = (hex: string, lum: number) => {
 };
 
 const OuterShadow = styled.div<Props>`
-  ${props => computeShadow(props.currentWidth!, props.backgroundColor!)};
-  border-radius: ${props =>
-    props.borderRadius ? props.borderRadius : "auto"}px;
+  ${props =>
+    computeShadow(
+      props.currentWidth!,
+      props.backgroundColor!,
+      props.inverted!
+    )};
+  border-radius: ${props => (props.borderRadius ? props.borderRadius : "0")}px;
   background-color: ${props =>
     props.backgroundColor ? props.backgroundColor : "orange"};
-  border: 0.5px solid rgba(255, 255, 255, 1);
+  border: 0.2px solid rgba(255, 255, 255, 0.4);
   height: ${props => (props.height ? props.height : "auto")}px;
   width: ${props => (props.width ? props.width : "auto")}px;
 `;

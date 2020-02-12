@@ -3,12 +3,14 @@ import Neumorphism from "./Neumorphism";
 import styled from "styled-components";
 
 const App = () => {
+  const [inverted, setinverted] = React.useState(false);
   return (
     <Container>
       <Neumorphism
         borderRadius={14}
         height={200}
         width={200}
+        inverted={inverted}
         style={{
           justifyContent: "center",
           display: "flex",
@@ -16,9 +18,10 @@ const App = () => {
         }}
       >
         <Neumorphism
+          inverted={inverted}
           borderRadius={14}
-          height={50}
-          width={50}
+          height={80}
+          width={80}
           style={{
             display: "flex",
             justifyContent: "center",
@@ -28,6 +31,31 @@ const App = () => {
           <p style={{ fontWeight: "bold", color: "white", fontSize: 23 }}>O</p>
         </Neumorphism>
       </Neumorphism>
+      <Neumorphism
+        width={80}
+        borderRadius={10}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      >
+        <h1 style={{ color: "white", fontWeight: "bold" }}>Hi</h1>
+      </Neumorphism>
+      <Neumorphism
+        width={300}
+        height={90}
+        borderRadius={12}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      >
+        <Neumorphism width={250} height={30} borderRadius={12}></Neumorphism>
+      </Neumorphism>
+
+      <button onClick={() => setinverted(!inverted)}>Invert me!</button>
     </Container>
   );
 };
@@ -38,7 +66,7 @@ const Container = styled.div`
 
   background-color: orange;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 `;
 
