@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import Neumorphism from "./Neumorphism";
+import styled from "styled-components";
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Container>
+      <Neumorphism
+        borderRadius={14}
+        height={200}
+        width={200}
+        style={{
+          justifyContent: "center",
+          display: "flex",
+          alignItems: "center"
+        }}
+      >
+        <Neumorphism
+          borderRadius={14}
+          height={50}
+          width={50}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <p style={{ fontWeight: "bold", color: "white", fontSize: 23 }}>O</p>
+        </Neumorphism>
+      </Neumorphism>
+    </Container>
   );
-}
+};
+
+const Container = styled.div`
+  height: 100vh;
+  width: 100vw;
+
+  background-color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default App;
