@@ -6,6 +6,10 @@ A UI Library for React for Neuphormism styles.
 
 For now just clone the repo, run npm install and run it.
 
+## Screenshot
+
+![screen](https://prnt.sc/r1gmzy)
+
 ## Built With
 
 - [styled-components](https://styled-components.com/) - For styling and shadows
