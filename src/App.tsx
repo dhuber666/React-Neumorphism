@@ -1,5 +1,5 @@
 import * as React from "react";
-import Neumorphism from "./Neumorphism";
+import Neumorphism from "./NeumorphismLib/Neumorphism";
 import styled from "styled-components";
 
 const App = () => {
